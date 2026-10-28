@@ -2,7 +2,7 @@
 
 Put it after the clip's Video Combine node. Every run records "shot N -> this clip" in a small
 manifest next to the clips (a re-rolled shot replaces its old take, Reset/shot 1 starts over),
-then rebuilds "<shot 1 name> (ghép mượt).mp4" from shots 1..N: the frames each clip repeats
+then rebuilds "<shot 1 name> (smooth join).mp4" from shots 1..N: the frames each clip repeats
 from the previous one are dropped and the seam is crossfaded (see smooth_join_core.py).
 """
 import json
@@ -69,7 +69,7 @@ class SmoothJoinChain:
             print(f"[Smooth Join] {note}")
             return {"ui": {"text": [note]}, "result": (clip,)}
 
-        out = os.path.join(folder, os.path.splitext(os.path.basename(order[0]))[0] + " (ghép mượt).mp4")
+        out = os.path.join(folder, os.path.splitext(os.path.basename(order[0]))[0] + " (smooth join).mp4")
         r = sj.join(order, out, fade_frames=fade_frames)
         seams = ", ".join(f"{s['shift']}f overlap/{s['fade']}f fade" if s else "plain cut" for s in r["seams"])
         print(f"[Smooth Join] shots 1-{n} -> {out} ({r['frames']} frames; {seams})")

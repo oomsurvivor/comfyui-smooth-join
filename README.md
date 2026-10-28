@@ -41,7 +41,7 @@ Output: `joined_path` (STRING), plus a text summary and a preview on the node.
 How it behaves:
 
 - Every run records "shot N = this clip" in `<chain_name>_shots.json` next to the clips.
-- From shot 2 on, it rebuilds `<shot 1 name> (ghép mượt).mp4` from shots 1..N, overwriting
+- From shot 2 on, it rebuilds `<shot 1 name> (smooth join).mp4` from shots 1..N, overwriting
   the previous join, so there is always one up-to-date joined file.
 - Re-rolling shot N replaces its old take and drops every later shot from the chain.
   Going back to shot 1 (Reset) starts a new chain. Individual clips are never deleted.

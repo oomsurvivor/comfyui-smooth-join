@@ -46,6 +46,13 @@ How it behaves:
 - Re-rolling shot N replaces its old take and drops every later shot from the chain.
   Going back to shot 1 (Reset) starts a new chain. Individual clips are never deleted.
 
+## Example workflow
+
+[`examples/clown_3clip_test_SmoothJoin.json`](examples/clown_3clip_test_SmoothJoin.json) is
+roychodraws' Clown Context Suite example (`sane_clown_example.json`) with Smooth Join Chain
+wired in after the clip saver. It needs the Clown Context Suite and the MiniMax H3 nodes;
+load your own reference pictures in place of the two image loaders.
+
 ## Command line
 
 The core works without ComfyUI:
